@@ -3,6 +3,7 @@
 <head>
 	<title>Socket IO Connection</title>
 
+	<link href='https://fonts.googleapis.com/css?family=Poiret+One' rel='stylesheet' type='text/css'>
 	<!--Style-->
 	<style type="text/css">
 	*{
@@ -11,11 +12,43 @@
 		padding: 0;
 	}
 	body{
+		font-family: 'Poiret One', cursive;
 		font-size: 20px;
 		text-align: center;
 	}
 	#wrapper{
 		margin: 0 auto;
+	}
+	#head{
+		box-shadow: 5px 5px 10px rgba(0,0,0,0.6);
+		padding: 1em;
+		width: 100%;
+	}
+	#head h1{
+		font-size: 2.2em;
+		color: rgba(0,0,0,0.6);
+	}
+	.login-form{
+		background-color: rgba(0,0,0,0.6);
+		margin: 2em auto;
+		padding: 1.5em;
+		max-width: 33%;
+	}
+	.login-form h3{
+		color: #fff;
+	}
+	.login-form input[type="text"], input[type="password"]{
+		font-size: 2em;
+		margin-top: 0.8em; 
+		text-align: center;
+	}
+	.login-form .login{
+		background-color: #fff;
+		color: #d8d8d8;
+		cursor: pointer;
+		margin-top: 2em;
+		padding: 1em 2em;
+		width: 30%;
 	}
 	</style>
 </head>
@@ -29,6 +62,17 @@
 			</h1>
 
 		</nav>
+
+		<div class="login-form">
+			
+			<h3>Login</h3>
+
+			<input type="text" placeholder="Username">
+			<input type="password" placeholder="Password">
+
+			<button class="login">Login</button>
+
+		</div>
 
 	</section>
 
