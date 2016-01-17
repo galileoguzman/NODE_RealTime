@@ -23,15 +23,16 @@
   },
   "dependencies": {
     "express": "^4.13.1",
-    "socket.io": "^1.3.6"
+    "socket.io": "^1.3.6",
+    "swig": "^1.4.2"
   },
   "devDependencies": {
     "express": "^4.13.1",
-    "socket.io": "^1.3.6"
+    "socket.io": "^1.3.6",
+    "swig": "^1.4.2"
   },
   "main": "server.js",
-  "scripts": {
-  },
+  "scripts": {},
   "bin": {
     "embedly_oembed": "server.js",
     "embedly_objectify": "server.js",
