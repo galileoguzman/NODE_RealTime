@@ -10,7 +10,15 @@ var express    = require('express');
 var app = require('express')();
 var http        = require('http').Server(app);
 var io = require('socket.io')(http);
-	
+var swig = require('swig');
+
+// ========================================
+// SETUP TEMPLATE ENGINE WITH SWIG
+// ========================================
+app.engine('html', swig.renderFile);
+app.set('view engine', 'html');
+app.set('views', __dirname + '/views');
+
 
 // ========================================
 // CONFIG CONNECTION OF SOCKET IO
@@ -29,8 +37,7 @@ io.on('connection', function(socket){
 
 
 app.get("/", function(req, res, next){
-	console.log("root");
-	res.send("root");
+	res.render('index');
 });
 
 // ====================================================== //
