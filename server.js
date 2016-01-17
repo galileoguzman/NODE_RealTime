@@ -19,6 +19,14 @@ app.engine('html', swig.renderFile);
 app.set('view engine', 'html');
 app.set('views', __dirname + '/views');
 
+// ========================================
+// ADD BODY PARSER TO APP
+// ========================================
+var bodyParser = require('body-parser')
+app.use(bodyParser.json());
+app.use(bodyParser.urlencoded());
+// in latest body-parser use like below.
+app.use(bodyParser.urlencoded({ extended: true }));
 
 // ========================================
 // CONFIG CONNECTION OF SOCKET IO
@@ -38,6 +46,14 @@ io.on('connection', function(socket){
 
 app.get("/", function(req, res, next){
 	res.render('index');
+});
+
+// ====================================================== //
+// == USER LOGIN
+// ====================================================== //
+app.post("/login", function(req, res, next){
+	console.log("Login Function Init");
+	console.log(req.body.user);
 });
 
 // ====================================================== //
