@@ -56,17 +56,6 @@ app.get("/", function(req, res, next){
 	res.render('index');
 });
 
-// testing
-app.get("/hellow", function(req, res, next){
-	var data = {
-		name : "Galileo",
-		surname: "Guzmán",
-		age : 26,
-	};
-
-	res.json(data);
-});
-
 // ====================================================== //
 // == USER LOGIN
 // ====================================================== //
@@ -100,7 +89,8 @@ app.post("/login", function(req, res, next){
 		// After all data is returned, close connection and return results
 		query.on('end', function() {
 			done();
-			//return res.json(results);
+			console.log(results);
+			return res.json(results);
 		});
 	});
 
@@ -109,7 +99,7 @@ app.post("/login", function(req, res, next){
 
 	// Set response
 	//res.setHeader('Content-Type', 'application/json');
-   	res.json(results);
+   	//res.json(results);
 });
 
 // ====================================================== //
