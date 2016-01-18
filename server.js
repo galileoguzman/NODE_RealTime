@@ -69,6 +69,7 @@ app.post("/login", function(req, res, next){
 
 	// query on postgresql db
 	var results = [];
+	var response = {'responseStatus': "Not OK"};
 
 	pg.connect(conString, function(err, client, done) {
 		// Handle connection errors
@@ -90,7 +91,9 @@ app.post("/login", function(req, res, next){
 		query.on('end', function() {
 			done();
 			console.log(results);
-			return res.json(results);
+			response.responseStatus = "OK";
+			response.data = results
+			//return res.json(response);
 		});
 	});
 
@@ -99,7 +102,7 @@ app.post("/login", function(req, res, next){
 
 	// Set response
 	//res.setHeader('Content-Type', 'application/json');
-   	//res.json(results);
+   	return res.json(response);
 });
 
 // ====================================================== //
