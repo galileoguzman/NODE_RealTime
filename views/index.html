@@ -67,14 +67,48 @@
 			
 			<h3>Login</h3>
 
-			<input type="text" placeholder="Username">
-			<input type="password" placeholder="Password">
+			<input type="text" placeholder="Username" id="username">
+			<input type="password" placeholder="Password" id="password">
 
 			<button class="login">Login</button>
 
 		</div>
 
 	</section>
+	<script type="text/javascript" src="https://code.jquery.com/jquery-2.2.0.js"></script>
+	<script>
+		//Initial code
+		$(document).on('ready', init());
 
+		function init () {
+			console.log("Init client");
+			$('.login').on('click', function(e){
+				e.preventDefault();
+				var username = $("#username").val();
+				var password = $("#password").val();
+				login(username, password);
+			});
+		}
+
+		function login(username, password)
+		{
+			console.log('Init Login function');
+
+			var data = {
+				username : username,
+				password : password
+			}
+
+			//console.log(data);
+
+			$.post("http://localhost:3000/login", data,function(response){
+				console.log(response);
+			}, 'json').fail(function(d){
+				console.log(d);
+			});
+		}
+
+
+	</script>
 </body>
 </html>

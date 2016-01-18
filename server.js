@@ -53,7 +53,10 @@ app.get("/", function(req, res, next){
 // ====================================================== //
 app.post("/login", function(req, res, next){
 	console.log("Login Function Init");
-	console.log(req.body.user);
+	console.log(req.body);
+	// Set response
+	res.setHeader('Content-Type', 'application/json');
+   	res.send(JSON.stringify(req.body));
 });
 
 // ====================================================== //
